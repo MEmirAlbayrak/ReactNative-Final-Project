@@ -15,7 +15,10 @@ const ProductList = ( {navigation}: any) => {
   return (
     <FlatList
         data={products.slice(0,5)}
-        renderItem={({ item }: any) => <Pressable onPress={() => navigation.navigate('ProductDetails', { id: item.id })}><Text style={{ fontSize: 30 }}>{item.name}</Text></Pressable>}
+        renderItem={({ item }: any) => <Pressable onPress={() => 
+          navigation.navigate('ProductDetails', { id: item.id })}><Text style={{ fontSize: 30 }}>{item.name}
+          </Text>
+        </Pressable>}
     />
   )
 };

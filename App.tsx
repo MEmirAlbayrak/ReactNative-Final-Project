@@ -19,8 +19,8 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Product" component={ProductList} />
+      <Tab.Navigator screenOptions={{headerShown: false}}>
+        <Tab.Screen name="Product" component={ProdList} />
         <Tab.Screen name="Category" component={CategotyList} />
         <Tab.Screen name="Orders" component={OrderPage} />
       </Tab.Navigator>
