@@ -6,7 +6,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ProductList from './src/propsSample/ProductList';
+import ProductDetails from './src/propsSample/ProductDetails'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -20,15 +26,16 @@ const App = () => {
   return (
 
     <SafeAreaProvider>
+    
       
-      
-  <NavigationContainer>
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={ProductList} />
-      <Tab.Screen name="Settings" component={ProductList} />
-    </Tab.Navigator>
-  </NavigationContainer>
-   
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="ProductList" component={ProductList} />
+        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+
   </SafeAreaProvider>
   );
 };
