@@ -8,8 +8,6 @@ const ProductDetails = ( {route} : any) => {
 
     const[detail, setdetail] = useState<any>({});
 
-
-
     useEffect(() => {
 
         axios.get('https://northwind.vercel.app/api/products/' +id).then(res => {
@@ -18,12 +16,10 @@ const ProductDetails = ( {route} : any) => {
     }, [])
 
     return(
-
         <View>
-        <Text style={{fontSize:35}}>{detail.name} </Text>
-        <Text style={{fontSize:35}}>{detail.unitPrice} </Text>
-        <Text style={{fontSize:35}}>{detail.unitsInStock} </Text>
-
+            <Text style={{fontSize:35}}>{detail.name} </Text>
+            <Text style={{fontSize:35}}>{detail.unitPrice} </Text>
+            <Text style={{fontSize:35}}>{detail.unitsInStock} </Text>
         </View>
     )
 }; 
