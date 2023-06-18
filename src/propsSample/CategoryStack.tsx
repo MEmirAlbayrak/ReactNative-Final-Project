@@ -1,22 +1,21 @@
 import React from 'react';
-
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import ProductList from './ProductList';
-import ProductDetails from './ProductDetails'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AddCategoryScreen from './AddCategoryScreen';
+import CategoryListScreen from './CategoryListScreen';
 
 const Stack = createNativeStackNavigator();
 
 
-const ProdList = () => {
+const CategoryStack = () => {
   return (
   <SafeAreaProvider>    
       <Stack.Navigator>
-        <Stack.Screen name="Product List" component={ProductList} />
-        <Stack.Screen name="Product Details" component={ProductDetails} />
+        <Stack.Screen name="Category List Screen" component={CategoryListScreen} />
+        <Stack.Screen name="Add Category Screen" component={AddCategoryScreen} />
       </Stack.Navigator>
   </SafeAreaProvider>
   );
 };
 
-export default ProdList;
+export default CategoryStack;

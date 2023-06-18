@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+
 
 const CategoryListScreen = ({ navigation }: { navigation: any }) => {
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      fetchData();
+      return () => {};  
+    }, []) 
+  );
+  
 
   const fetchData = async () => {
     try {
@@ -23,7 +29,7 @@ const CategoryListScreen = ({ navigation }: { navigation: any }) => {
     try {
       await axios.delete(`https://northwind.vercel.app/api/categories/${id}`);
       console.log('Category deleted:', id);
-      fetchData(); // Fetch the updated list of categories after deletion
+      fetchData(); 
     } catch (error) {
       console.error('Error deleting category:', error);
     }
@@ -51,7 +57,7 @@ const CategoryListScreen = ({ navigation }: { navigation: any }) => {
       </ScrollView>
       <TouchableOpacity
         style={styles.updateButton}
-        onPress={() => navigation.navigate('AddCategory')}
+        onPress={() => navigation.navigate('Add Category Screen')}
       >
         <Text style={styles.updateButtonText}>Update</Text>
       </TouchableOpacity>
