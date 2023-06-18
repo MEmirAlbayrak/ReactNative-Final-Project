@@ -8,10 +8,11 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ProductList from './src/propsSample/ProductList';
 import ProductDetails from './src/propsSample/ProductDetails'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CategotyList from './src/propsSample/CategotyList';
+import CategotyList from './src/propsSample/CategoryList';
 import ProdList from './src/propsSample/ProdList';
 import OrderPage from './src/propsSample/OrderPage';
 import { PaperProvider } from 'react-native-paper';
+import CategoryList from './src/propsSample/CategoryList';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -30,7 +31,7 @@ const App = () => {
       <NavigationContainer>
         <Tab.Navigator screenOptions={{headerShown: false}}>
           <Tab.Screen name="Product" component={ProdList} />
-          <Tab.Screen name="Category" component={CategotyList} />
+          <Tab.Screen name="Category" component={CategoryList} />
           <Tab.Screen name="Orders" component={OrderPage} />
         </Tab.Navigator>
       </NavigationContainer>
