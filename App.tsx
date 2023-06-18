@@ -11,20 +11,30 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CategotyList from './src/propsSample/CategotyList';
 import ProdList from './src/propsSample/ProdList';
 import OrderPage from './src/propsSample/OrderPage';
+import { PaperProvider } from 'react-native-paper';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+const theme = {
+  colors: {
+    primary: 'rgb(220, 184, 255)',
+    secondary: 'rgb(208, 193, 218)',
+  },
+};
+
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}}>
-        <Tab.Screen name="Product" component={ProdList} />
-        <Tab.Screen name="Category" component={CategotyList} />
-        <Tab.Screen name="Orders" component={OrderPage} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <PaperProvider theme={theme}>
+      <NavigationContainer>
+        <Tab.Navigator screenOptions={{headerShown: false}}>
+          <Tab.Screen name="Product" component={ProdList} />
+          <Tab.Screen name="Category" component={CategotyList} />
+          <Tab.Screen name="Orders" component={OrderPage} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 };
 
