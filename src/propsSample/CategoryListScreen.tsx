@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-
+import { List, Button } from 'react-native-paper';
 
 const CategoryListScreen = ({ navigation }: { navigation: any }) => {
   const [categories, setCategories] = useState([]);
@@ -41,12 +41,17 @@ const CategoryListScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.categoryName}>Name: {category.name}</Text>
         <Text style={styles.categoryDescription}>Description: {category.description}</Text>
       </View>
-      <TouchableOpacity
-        style={styles.deleteButton}
-        onPress={() => handleDelete(category.id)}
-      >
+      <Button
+        buttonColor='rgb(200, 45, 45)'
+        textColor='rgb(255, 255, 255)'
+        style={{ borderRadius: 20,  
+         width: 80,
+         height: 40,
+         justifyContent: 'center',
+         alignItems: 'center'}}
+        onPress={() => handleDelete(category.id)}>
         <Text style={styles.deleteButtonText}>Delete</Text>
-      </TouchableOpacity>
+      </Button>
     </View>
   );
 
@@ -55,12 +60,19 @@ const CategoryListScreen = ({ navigation }: { navigation: any }) => {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         {categories.map(renderCategory)}
       </ScrollView>
-      <TouchableOpacity
-        style={styles.updateButton}
-        onPress={() => navigation.navigate('Add Category Screen')}
-      >
-        <Text style={styles.updateButtonText}>Update</Text>
-      </TouchableOpacity>
+      <Button
+        buttonColor='rgb(45, 200, 45)'
+        textColor='rgb(255, 255, 255)'
+        style={{ 
+        position: 'absolute',
+        bottom: 16,
+        left: 16,
+        right: 16,
+        paddingVertical: 5,
+        borderRadius: 4 }} 
+        onPress={() => navigation.navigate('Add Category Screen')}>
+        <Text style={{ fontWeight:"900" }}>Update</Text>
+      </Button>
     </View>
   );
 };
@@ -104,22 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
-  },
-  updateButton: {
-    backgroundColor: 'green',
-    position: 'absolute',
-    bottom: 16,
-    left: 16,
-    right: 16,
-    paddingVertical: 16,
-    borderRadius: 4,
-  },
-  updateButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+  }
 });
 
 export default CategoryListScreen;

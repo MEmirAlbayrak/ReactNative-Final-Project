@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { Text } from 'react-native-paper';
 
 const ProductDetails = ( {route} : any) => {
 
@@ -17,10 +18,13 @@ const ProductDetails = ( {route} : any) => {
 
     return(
         <View>
-            <Text style={{fontSize:35}}>{detail.name} </Text>
-            <Text style={{fontSize:35}}>{detail.unitPrice} </Text>
-            <Text style={{fontSize:35}}>{detail.unitsInStock} </Text>
+            
+            <Text variant="displayMedium">{detail.name} </Text>
+            <Text variant="headlineMedium">{detail.unitPrice} </Text>
+            <Text variant="headlineMedium">{detail.unitsInStock} </Text>
         </View>
     )
 }; 
 export default ProductDetails;
+
+

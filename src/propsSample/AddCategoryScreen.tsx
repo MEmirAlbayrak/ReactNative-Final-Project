@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
-const AddCategoryScreen = () => {
+const AddCategoryScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
@@ -45,7 +45,9 @@ const AddCategoryScreen = () => {
           value={description}
           onChangeText={handleDescriptionChange}
         />
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+        <TouchableOpacity style={styles.submitButton} onPress={() => {
+          handleSubmit();
+          navigation.navigate('Category List Screen');}}>
           <Text style={styles.submitButtonText}>Submit</Text>
         </TouchableOpacity>
       </View>

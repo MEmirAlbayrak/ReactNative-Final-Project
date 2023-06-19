@@ -1,6 +1,6 @@
 import React, { useEffect, useState  } from 'react';
 import axios from 'axios';
-import { Text ,List, Button, Divider } from 'react-native-paper';
+import { List, Button } from 'react-native-paper';
 import { ScrollView } from 'react-native';
 
 
@@ -31,10 +31,11 @@ const ProductList = ( {navigation}: any) => {
           onPress={() => navigation.navigate('ProductDetails', { id: item.id })}
           right={() => 
             <Button
-              buttonColor='rgb(45, 45, 45)'
+              buttonColor='rgb(200, 45, 45)'
               textColor='rgb(255, 255, 255)'
+              style={{ borderRadius: 20}}
               onPress={() => removeProduct(item.id)}>
-                Remove
+                Delete
             </Button>
           }
         />

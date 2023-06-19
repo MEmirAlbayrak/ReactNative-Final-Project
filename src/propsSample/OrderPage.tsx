@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 const OrderPage = () => {
     return(
         <View>
-            <Text>Order Page</Text>
+            <Text></Text>
         </View>
     )
 }; 
